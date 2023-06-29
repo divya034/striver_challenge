@@ -1,0 +1,37 @@
+#include <cstdlib>
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+// where eleements in arr are part of [1,N]
+int find(int arr[], int n){
+  int ans;
+  
+  for(int i = 0; i<n; i++){
+     int index = abs(arr[i]);
+
+      if(arr[index-1] > 0){
+          arr[index-1] *= -1;
+      }
+      else{
+          ans = index;
+          break;
+      }
+      
+  }
+  
+  return ans;
+}
+
+int main()
+{
+    int arr[] = {4,2,3,4};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    cout<< find(arr, n);
+    
+    // for(int i = 0; i<n; i++){
+    //     cout<<arr[i]<<" ";
+    // }
+
+    return 0;
+}
