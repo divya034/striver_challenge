@@ -37,7 +37,7 @@ int main()
 }
 
 
-WRONG BABBAR
+WRONG BABBAR: works for o to n-1 values in the array
 
 
 int find(int arr[], int n){
