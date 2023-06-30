@@ -1,37 +1,43 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
+        
         string ans;
         int i = 0;
-
-        while(true){ //iterating over all the strings
-          //iterating oer charcters
-          char newchar = 0;
-          for(auto str: strs){
-            if(i >= str.size()){
-                newchar = 0;
-                break;
-            }
-
-            if(newchar == 0){
-                newchar = str[i];
-            }
-
-            else if(newchar != str[i]){
-                newchar = 0;
-                break;
-            }
+        int done = 1;
+        while(true){
+            char curr_ch = 0;
             
-          }
-          
-          if(newchar == 0){break;}
+            for(auto str: strs){
+                //first str is out of bounf
+                if(i >= str.size()){
+                    done = 0;
+                    break;
+                }
+                // 
+                if(curr_ch == 0){
+                    curr_ch = str[i];
+                }
 
-          ans.push_back(newchar);
-          i++;
+                //goes to string 2 and strin 3
+                else if(curr_ch != str[i]){
+                    done = 0;
+                    break;
+                }
+
+            }
+
+            if(done == 0){
+                break;
+            }
+          //first char from string 1 (after checking with str2 and str3)
+           ans.push_back(curr_ch);
+           //go to second char of string 1
+           i++;
 
 
         }
+return ans;
 
-        return ans;
     }
 };
