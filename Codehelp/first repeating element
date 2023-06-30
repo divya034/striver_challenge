@@ -1,0 +1,21 @@
+class Solution {
+  public:
+    // Function to return the position of the first repeating element.
+    int firstRepeated(int arr[], int n) {
+       
+       unordered_map<int, int> mp;
+       
+       for(int i = 0; i< n; i++){
+           mp[arr[i]]++;
+       }
+         //IMPORATANT, WE CANT STOR ETHE INDEX IN THE MAP, OLY STORE IF THE ELEMENT OCCURS MORE  THAN ONCE
+         //THEN TO CHECK ITS POS AGAING HAVE TO ITEREATE THE array 
+       for(int i = 0; i<n; i++){
+           if(mp[arr[i]] > 1){
+               return i+1;
+           }
+       }
+       
+       return -1;
+    }
+};
