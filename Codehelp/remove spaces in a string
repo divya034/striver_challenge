@@ -1,0 +1,58 @@
+CHARR ARRAY
+
+#include <iostream>
+
+void removeSpaces(char* str) {
+    int i = 0, j = 0;
+    
+    while (str[i]) {
+        if (str[i] != ' ') {
+            str[j] = str[i];
+            j++; // j remain at the space and it next iteration copy the
+        }
+        i++;
+    }
+    
+    str[j] = '\0';  // Null-terminate the modified string
+}
+
+int main() {
+    char str[] = "Hello, World! This is a test.";
+    
+    std::cout << "Before removing spaces: " << str << std::endl;
+    removeSpaces(str);
+    std::cout << "After removing spaces: " << str << std::endl;
+    
+    return 0;
+}
+
+STL USAGE
+
+
+#include <iostream>
+#include <string>
+
+void removeSpaces(std::string& str) {
+    str.erase(remove(str.begin(), str.end(), ' '), str.end());
+}
+
+int main() {
+    std::string str = "Hello, World! This is a test.";
+    
+    std::cout << "Before removing spaces: " << str << std::endl;
+    removeSpaces(str);
+    std::cout << "After removing spaces: " << str << std::endl;
+    
+    return 0;
+}
+
+
+Here's a breakdown of the steps:
+
+The remove algorithm rearranges the elements in the string, moving all 
+spaces to the end of the string and returning an iterator to the
+new end of the modified range. This modifies the string, but its length remains unchanged.
+
+The erase function is called on the string, passing the range defined by the iterator returned 
+by remove and the end iterator (str.end()). This removes the excess characters beyond the new end
+iterator and updates the length of the string to reflect the actual length without the spaces.
