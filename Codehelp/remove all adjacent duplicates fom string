@@ -1,4 +1,37 @@
-USIN STACK
+O(N) TC AND O(1) SPACE 
+
+
+class Solution {
+public:
+    string removeDuplicates(string s) {
+         
+        int i =0;
+            int st= s.length()-2;
+            while(i<=st){
+   
+                if (s[i]==s[i+1]){
+
+                    s.erase(i,2);
+
+                    if (i!= 0){
+                        i=i-1;
+                    }
+
+                }
+                else{
+
+                    i++;
+                    }
+            }
+
+        
+            return s;
+        
+    }
+};
+
+
+USING STACK
 
 class Solution {
 public:
@@ -25,5 +58,30 @@ public:
         return ans;
 
 
+    }
+};
+
+
+
+
+
+O(N) TC AND O(n) SPACE 
+
+class Solution {
+public:
+    string removeDuplicates(string s) {
+         
+         string pool;
+         for(char i: s){
+             if(pool.back() == i){
+                 pool.pop_back();
+             }
+             else{
+                 pool.push_back(i);
+             }
+         }
+
+         return pool;
+        
     }
 };
