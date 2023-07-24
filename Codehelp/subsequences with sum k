@@ -1,0 +1,48 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<vector>
+
+using namespace std;
+
+void select(int i, vector<int> ds, int s, int sum, int arr[], int n){
+    
+    if(i == n){
+        if(s == sum){
+        for(auto i: ds){
+            cout<<i<<" ";
+        }
+        cout<<endl;}
+        return;
+    }
+    
+    //not select
+    select(i+1, ds, s, sum, arr, n);
+    ds.push_back(arr[i]);
+    s+=arr[i];
+    
+    //select
+    select(i+1, ds, s, sum, arr, n);
+    ds.pop_back();
+    
+}
+
+int main()
+{
+    int arr[] = {3,1,2, 4, -1};
+    int n = sizeof(arr)/ sizeof(arr[0]);
+    
+    vector<int> ds;
+    int sum = 3;
+    int s = 0;
+    
+    select(0, ds, s, sum, arr, n);
+
+    return 0;
+}
