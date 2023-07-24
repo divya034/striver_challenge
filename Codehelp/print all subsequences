@@ -1,0 +1,49 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<vector>
+
+using namespace std;
+
+void select(int i, vector<int> ds, int arr[], int n){
+    
+    if( i == n){
+        if(ds.size() == 0){
+            cout<<"{}"<<endl;
+        }        
+        
+        else{
+            for(auto i: ds){
+                cout<<i<<" ";
+            }
+             cout<<endl;
+            
+        }
+        return;
+    }
+    
+    //not select
+    select(i+1, ds, arr, n);
+    ds.push_back(arr[i]);
+    
+    //select
+    select(i+1, ds, arr, n);
+    ds.pop_back();
+    
+}
+
+int main()
+{
+    int arr[] = {3,1,2};
+    int n = sizeof(arr)/ sizeof(arr[0]);
+    vector<int> ds;
+    select(0, ds, arr, n);
+
+    return 0;
+}
