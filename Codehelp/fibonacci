@@ -1,0 +1,33 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+void fib(int n){
+    int prev2 = 0;
+    int prev = 1;
+    int curr = 0;
+    
+    for(int i = 2; i<=n; i++){
+       curr = prev2 + prev;
+        
+        prev2 = prev;
+        prev = curr;
+    }
+    
+    cout<<curr;
+}
+
+int main()
+{
+    fib(3);
+
+    return 0;
+}
